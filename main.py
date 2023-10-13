@@ -1,8 +1,6 @@
 import tkinter as tk
 import source
-"""
-teraz podpiąc przycisk do funkcji i ewentualnie to rozdzielić, text musi się zmieniać
-"""
+
 def main():
 
     fullName = ""
