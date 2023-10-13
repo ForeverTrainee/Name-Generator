@@ -1,16 +1,45 @@
-# This is a sample Python script.
+import tkinter as tk
+import source
+"""
+teraz podpiąc przycisk do funkcji i ewentualnie to rozdzielić, text musi się zmieniać
+"""
+def main():
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    fullName = ""
+    window = tk.Tk()
+    window.title("Name Generator")
+    window.geometry("350x200")
+    window.rowconfigure(0, minsize=20)
+    window.columnconfigure([0, 1], minsize=20)
+    
+    newlabel = tk.Label(text=" Press button to generate name!")
+    newlabel.grid(row=0, column=0)
+
+    
+    btn = tk.Button(
+        text="Clic me to generate name!",
+        width=20,
+        height=15,
+        bg="black",
+        fg="white",
+    )
+    btn.grid(row=0, column=0, sticky="nsew")
+    
+    label1 = tk.Label(
+        text=fullName,
+        width=25,
+        height=15,
+        bg="black",
+        fg="white",
+    )
+    label1.grid(row=0, column=1, sticky="nsew")
+    def handle_click(event):
+        fullName=source.sourced_data()
+        print(fullName)
+        label1["text"]=fullName
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    btn.bind("<Button-1>", handle_click)
+    window.mainloop()
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+main()
